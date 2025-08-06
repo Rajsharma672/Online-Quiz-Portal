@@ -1,0 +1,22 @@
+body {
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #471396, #090040);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.section-title {
+  margin-top: 4rem;
+}

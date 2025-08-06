@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <span class="navbar-brand">Student Dashboard</span>
+    <button class="btn btn-warning" onclick="logout()">Logout</button>
+  </nav>
+
+  <div class="container mt-4">
+    <h3>Welcome, <span id="studentName"></span></h3>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Attempt Quiz</h5>
+            <p class="card-text">Start a new quiz.</p>
+            <a href="student-quizzes.html" class="btn btn-primary">Start</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">View Results</h5>
+            <p class="card-text">See your quiz history.</p>
+            <a href="#" class="btn btn-success">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user || user.role.toLowerCase() !== "student") {
+      window.location.href = "../loginpage/login.html";
+    } else {
+      document.getElementById("studentName").textContent = user.name;
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "../loginpage/login.html";
+    }
+  </script>
+</body>
+</html>
